@@ -13,12 +13,16 @@
 
 ## Запуск приложения
 
-### Через docker
+### Через docker (Linux)
 На текущей машине должны быть установлены docker и docker-compose. Вам необходимо склонировать данный репозиторий и перейти в папку Daily-planner
 
 ```git clone git@github.com:Danila-gi/Daily-planner.git```
 
 ```cd Daily-planner```
+
+Создать файл .env (скопировать данные из .env.examplae)
+
+```cp .env.example .env```
 
 Создаются образы: образ для БД, образ backend приложения
 
