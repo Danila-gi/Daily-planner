@@ -1,0 +1,16 @@
+annotated-types==0.7.0
+anyio==4.12.1
+asyncpg==0.29.0
+click==8.3.1
+fastapi==0.109.0
+greenlet==3.3.2
+h11==0.16.0
+idna==3.11
+pydantic==2.6.0
+pydantic-settings==2.2.0
+pydantic_core==2.16.1
+python-dotenv==1.2.2
+SQLAlchemy==2.0.30
+starlette==0.35.1
+typing_extensions==4.15.0
+uvicorn==0.42.0

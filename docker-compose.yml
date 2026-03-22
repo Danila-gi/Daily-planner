@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgsql:/var/lib/postgresql/data
+    networks:
+      - default
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tasks
+
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: daily_planner_app
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - default
+    restart: always
+
+volumes:
+  pgsql:
+
+networks:
+  default:
+    driver: bridge
